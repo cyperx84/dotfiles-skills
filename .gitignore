@@ -1,0 +1,66 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Thumbnails
+*.jpg
+*.png
+*.gif
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+.*.swp
+
+# Logs
+*.log
+logs/
+
+# Backup files
+*.backup
+*.bak
+*-backup-*
+
+# Editor directories
+.vscode/
+.idea/
+*.sublime-*
+
+# Test and coverage outputs
+coverage/
+.coverage
+htmlcov/
+*.cover
+.pytest_cache/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Environment files (if any examples exist)
+.env
+.env.local
+
+# Node modules (if any tooling added later)
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Rust
+target/
+Cargo.lock
+
+# Go
+vendor/
+
+# Skill-specific temporary files
+.skill-cache/
+.validation-cache/
