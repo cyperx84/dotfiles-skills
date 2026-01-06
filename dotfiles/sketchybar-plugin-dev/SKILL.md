@@ -107,7 +107,7 @@ ICON=""      # Default icon (customize)
 
 # Main update function
 update() {
-  # TODO: Implement data fetching logic
+  # Fetch data and update the bar item
   local data=$(fetch_data)
 
   # Update SketchyBar item
@@ -118,15 +118,15 @@ update() {
 
 # Data fetching function
 fetch_data() {
-  # TODO: Implement actual data source
-  # Example: spotify status, weather data, etc.
+  # Replace with your data source (e.g., spotify status, weather data, system info)
+  # Example: curl -s "https://api.example.com/data" | jq -r '.value'
   echo "Plugin Active"
 }
 
 # Event handler for clicks
 handle_click() {
-  # TODO: Implement click action
-  # Example: open app, toggle state, etc.
+  # Add your click action here (e.g., open app, toggle state, show popup)
+  # Example: open -a "Spotify" or sketchybar --set "$NAME" popup.drawing=toggle
   echo "Clicked!"
 }
 

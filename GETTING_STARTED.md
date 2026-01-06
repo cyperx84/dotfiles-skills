@@ -3,362 +3,297 @@
 ## 🎉 Welcome!
 
 You now have a complete Claude Code skills repository with:
-- ✅ **1 Production-Ready Skill**: Service Orchestrator (fully functional)
-- ✅ **9 Skill Templates**: Framework for completing remaining skills
-- ✅ **Complete Documentation**: README, Contributing, Templates
+- ✅ **10 Production-Ready Skills**: All fully functional and tested
+- ✅ **Complete Documentation**: README, Contributing guidelines, skill authoring guide
 - ✅ **Installation System**: One-command install script
-- ✅ **Repository Structure**: Professional, scalable organization
+- ✅ **Anthropic Best Practices**: All skills follow latest documentation standards
 
 ## 🚀 Quick Start (2 minutes)
 
-### 1. Test the Service Orchestrator Skill
+### 1. Install All Skills
 
 ```bash
-# Install the complete skill
-cd ~/dotfiles-skills
-./install.sh --user --skill service-orchestrator
+# Clone repository (if not already done)
+git clone https://github.com/YOUR_USERNAME/dotfiles-skills.git
+cd dotfiles-skills
 
-# Test it in Claude Code
-# Ask: "Restart my window management services"
-# Or: "Reload yabai and sketchybar"
+# Install to user-level (~/.claude/skills/)
+./install.sh --user
+
+# Or install to project-level (.claude/skills/)
+./install.sh --project
 ```
 
-### 2. Explore the Repository
+### 2. Test a Skill
+
+Open Claude Code and try one of these prompts:
+
+**Dotfiles Skills:**
+```
+"Restart my window management services"
+"Check my stow symlinks"
+"Switch to gruvbox theme"
+"Validate my configs before committing"
+"Create a new SketchyBar plugin for Docker"
+```
+
+**General Skills:**
+```
+"Update my dependencies safely"
+"Generate API documentation"
+"Check my test coverage"
+"Create a database migration"
+"Validate my dev environment"
+```
+
+### 3. Explore the Repository
 
 ```bash
 # View structure
-tree -L 2 ~/dotfiles-skills
+tree -L 2
 
-# Read the production-ready skill
+# Read a skill
 cat dotfiles/service-orchestrator/SKILL.md
 
-# Check the template
+# Check the template for creating new skills
 cat shared/templates/SKILL-template.md
 ```
 
-### 3. Install All Skills (including templates)
+## 📋 Available Skills
+
+### Dotfiles Skills (5)
+
+| Skill | What It Does | Example Prompt |
+|-------|-------------|----------------|
+| **Service Orchestrator** | Restarts yabai/skhd/sketchybar safely | "Restart services" |
+| **Stow Health Manager** | Scans and repairs symlinks | "Check my stow health" |
+| **Theme Switcher** | Coordinates theme changes | "Switch to catppuccin" |
+| **Pre-Commit Guardian** | Validates configs before commit | "Validate my configs" |
+| **SketchyBar Plugin Dev** | Scaffolds new plugins | "Create sketchybar plugin" |
+
+### General Skills (5)
+
+| Skill | What It Does | Example Prompt |
+|-------|-------------|----------------|
+| **Dependency Update Manager** | Safe dependency updates | "Update my dependencies" |
+| **Environment Setup Validator** | Validates dev environment | "Check my environment" |
+| **API Doc Generator** | Creates OpenAPI docs | "Generate API docs" |
+| **Test Coverage Analyzer** | Finds untested code | "Analyze test coverage" |
+| **DB Migration Assistant** | Safe database migrations | "Create migration" |
+
+## 🔧 Installation Methods
+
+### Method 1: User-Level (Recommended)
+
+Install skills for all your projects:
 
 ```bash
-# Install everything
 ./install.sh --user
+```
 
-# Or symlink for development
+Skills available in `~/.claude/skills/`
+
+### Method 2: Project-Level
+
+Install skills for a specific project:
+
+```bash
+cd your-project
+/path/to/dotfiles-skills/install.sh --project
+```
+
+Skills available in `.claude/skills/`
+
+### Method 3: Individual Skills
+
+Copy specific skills as needed:
+
+```bash
+cp -r dotfiles/service-orchestrator ~/.claude/skills/
+```
+
+### Method 4: Development (Symlink)
+
+For active development of skills:
+
+```bash
 ./install.sh --user --link
 ```
 
-## 📋 What's Complete
+Changes to source files immediately reflect in Claude Code.
 
-### ✅ Fully Functional
+## 📚 Understanding Skill Structure
 
-**Service Orchestrator** (`dotfiles/service-orchestrator/`)
-- Production-ready skill
-- Comprehensive workflow
-- Error handling
-- Health checks
-- Detailed examples
-- Full documentation
+Each skill follows the [Anthropic skill format](https://docs.anthropic.com/claude-code/skills):
 
-**Repository Infrastructure**
-- Main README with all 10 skills listed
-- Installation script
-- Skill template
-- Contributing guidelines
-- LICENSE (MIT)
-- Professional structure
+```
+skill-name/
+├── SKILL.md       # Main skill file (required)
+├── README.md      # Documentation
+├── resources/     # Supporting files (optional)
+└── examples/      # Usage examples (optional)
+```
 
-### 🚧 Ready to Complete
+### SKILL.md Anatomy
 
-**9 Skill Templates** (dotfiles/ and general/)
-- Directory structure created
-- Placeholder READMEs
-- Ready for SKILL.md creation using template
+```yaml
+---
+name: Skill Name
+description: >
+  Activate when user says "trigger phrase 1", "trigger phrase 2".
+  Brief description of what the skill does.
+tools:
+  - Bash
+  - Read
+  - Grep
+---
 
-## 📖 Completing the Remaining Skills
+# Skill Name
 
-### Option 1: Do It Yourself
+## Overview
+What problem this solves.
 
-Use the comprehensive template to create each skill:
+## Prerequisites
+What's needed to use this skill.
+
+## When to Activate
+Specific trigger conditions.
+
+## Execution Steps
+Phase-by-phase workflow.
+
+## Examples
+Concrete usage scenarios.
+
+## Error Handling
+How to handle failures.
+
+## Limitations
+What the skill cannot do.
+```
+
+## 🎯 Creating New Skills
+
+### 1. Use the Template
 
 ```bash
-# 1. Choose a skill to complete
-cd dotfiles/stow-health-manager
+# Create new skill directory
+mkdir -p dotfiles/my-skill
 
-# 2. Copy the template
-cp ../../shared/templates/SKILL-template.md SKILL.md
+# Copy template
+cp shared/templates/SKILL-template.md dotfiles/my-skill/SKILL.md
+```
 
-# 3. Fill in all [placeholders] following template instructions
+### 2. Fill In the Template
 
-# 4. Test the skill
-ln -s $(pwd) ~/.claude/skills/stow-health-manager
+1. Update YAML metadata (name, description, tools)
+2. Write clear trigger-focused description
+3. Define workflow phases
+4. Add 3+ examples
+5. Document error handling
+6. List limitations
+
+### 3. Test Your Skill
+
+```bash
+# Symlink for testing
+ln -s $(pwd)/dotfiles/my-skill ~/.claude/skills/my-skill
+
 # Test in Claude Code
-
-# 5. Update the README
-# Replace placeholder with actual documentation
+# Ask: "Your trigger phrase"
 ```
 
-**Estimated Time per Skill**: 1-2 hours
+### 4. Submit a PR
 
-**Priority Order** (highest value first):
-1. ✅ Service Orchestrator (DONE)
-2. Stow Health Manager
-3. Pre-Commit Guardian
-4. Dependency Update Manager
-5. [Others]
+See [Contributing Guidelines](./docs/contributing.md) for PR process.
 
-### Option 2: Community Contribution
+## 💡 Tips for Best Results
 
-Invite the community to complete skills:
+### Trigger Phrases Matter
 
+The `description` field determines when Claude activates your skill. Be specific:
+
+```yaml
+# Good - clear trigger phrases
+description: >
+  Activate when user says "restart services", "reload yabai", "fix sketchybar".
+
+# Bad - vague description
+description: Manages services.
+```
+
+### Tool Restrictions
+
+Limit tools to what's actually needed (security best practice):
+
+```yaml
+tools:
+  - Bash   # For running commands
+  - Read   # For reading files
+  - Grep   # For searching
+  # Only include what's necessary
+```
+
+### Prerequisites with Verification
+
+Always include verification commands:
+
+```markdown
+## Prerequisites
+
+### Required Tools
+- **jq** - JSON processing (`brew install jq`)
+
+### Verification
 ```bash
-# 1. Initialize git repo
-cd ~/dotfiles-skills
-git init
-git add .
-git commit -m "Initial commit: Dotfiles Skills repository
-
-- Complete Service Orchestrator skill
-- Templates for 9 additional skills
-- Full documentation and installation system"
-
-# 2. Create GitHub repository
-# Push to GitHub
-
-# 3. Add issues for each skill
-# Use GitHub issue template
+command -v jq >/dev/null && echo "✓ jq" || echo "✗ jq missing"
+```
 ```
 
-### Option 3: Hybrid Approach
+## 🔍 Troubleshooting
 
-- Complete 2-3 more skills yourself (high priority)
-- Open source the rest for community contributions
-- This gives users immediate value + growth potential
+### Skill Not Activating
 
-## 🎯 Next Steps (Choose Your Path)
+1. Check that skills are installed: `ls ~/.claude/skills/`
+2. Verify SKILL.md exists in skill directory
+3. Check description includes your trigger phrases
+4. Try more specific trigger phrases
 
-### Path A: Complete All Skills (Time Investment: 10-15 hours)
+### Commands Failing
 
-1. **Week 1**: Complete dotfiles skills (4 remaining)
-   - Stow Health Manager (critical)
-   - Pre-Commit Guardian (critical)
-   - Theme Switcher (quality of life)
-   - SketchyBar Plugin Dev (for developers)
+1. Verify prerequisites are installed
+2. Check the skill's Prerequisites section
+3. Run verification commands manually
+4. Review Error Handling section
 
-2. **Week 2**: Complete general skills (5 skills)
-   - Dependency Update Manager (high value)
-   - Environment Setup Validator (team value)
-   - API Doc Generator (developers)
-   - Test Coverage Analyzer (quality)
-   - DB Migration Assistant (developers)
+### Getting Help
 
-3. **Week 3**: Polish and release
-   - Add examples for each skill
-   - Create video demos
-   - Write blog post
-   - Submit to awesome-claude-skills
+- Check [Contributing Guidelines](./docs/contributing.md)
+- Review [Skill Improvements](./docs/SKILL_IMPROVEMENTS.md) for best practices
+- Open an issue on GitHub
 
-### Path B: MVP Release (Time: 2-4 hours)
-
-1. **Complete 2 more critical skills**:
-   - Stow Health Manager (prevents disaster)
-   - Pre-Commit Guardian (prevents problems)
-
-2. **Polish documentation**:
-   - Add more examples
-   - Create usage GIFs
-   - Write clear README
-
-3. **Release v0.5.0**:
-   - 3 complete skills
-   - 7 templates with framework
-   - Invite community contributions
-
-### Path C: Immediate Release (Time: 30 minutes)
-
-1. **Release as-is (v0.1.0)**:
-   - 1 complete skill
-   - 9 templates
-   - Full documentation
-
-2. **Label clearly**:
-   - "Early release - contributions welcome"
-   - Mark skills as "complete" vs "template"
-
-3. **Community builds it**:
-   - Open issues for each skill
-   - Accept pull requests
-   - Guide contributors
-
-## 💡 Using the Template
-
-The template (`shared/templates/SKILL-template.md`) includes:
-
-### Required Sections
-- YAML frontmatter (name, description, triggers)
-- Purpose (why this exists)
-- When to use (trigger conditions)
-- Workflow (3-5 phases)
-- Examples (3+ scenarios)
-- Guidelines (DO/DON'T)
-- Dependencies
-- Troubleshooting
-
-### Template Instructions
-At the bottom of the template, detailed instructions for:
-- Replacing placeholders
-- Defining triggers
-- Breaking down workflows
-- Creating examples
-- Quality checklist
-
-### Quality Checklist
-Before considering a skill "complete":
-- [ ] All placeholders replaced
-- [ ] Trigger keywords defined
-- [ ] Workflow phases documented
-- [ ] Error handling specified
-- [ ] 3+ examples provided
-- [ ] DO/DON'T guidelines
-- [ ] Dependencies listed
-- [ ] Troubleshooting section
-- [ ] Success metrics defined
-- [ ] Tested on real use case
-
-## 🔍 Example: Completing Stow Health Manager
-
-Here's how you'd complete the next high-priority skill:
-
-```bash
-cd ~/dotfiles-skills/dotfiles/stow-health-manager
-
-# 1. Copy template
-cp ../../shared/templates/SKILL-template.md SKILL.md
-
-# 2. Update YAML frontmatter
-# name: Stow Health Manager
-# description: Scans for broken symlinks, identifies stow conflicts, repairs dotfiles automatically. Use when user has stow issues or wants to verify dotfiles health. Triggers: "check stow", "fix symlinks", "verify dotfiles", "repair stow".
-
-# 3. Define workflow phases:
-# Phase 1: Detection - Scan all stow-managed directories
-# Phase 2: Analysis - Identify broken links, conflicts, drift
-# Phase 3: Reporting - Generate health report
-# Phase 4: Repair (optional) - Fix identified issues
-# Phase 5: Verification - Confirm repairs successful
-
-# 4. Add examples:
-# Example 1: Routine health check (all good)
-# Example 2: Broken symlinks detected and repaired
-# Example 3: Conflicts found, user guided to resolution
-
-# 5. Test
-ln -s $(pwd) ~/.claude/skills/stow-health-manager
-# Ask Claude: "Check my stow health"
-
-# 6. Iterate until it works well
-```
-
-## 📚 Resources
-
-### In This Repository
-- `dotfiles/service-orchestrator/SKILL.md` - Complete skill example
-- `shared/templates/SKILL-template.md` - Template to use
-- `docs/contributing.md` - Full development guide
-- `README.md` - Repository overview
-
-### External Resources
-- [Claude Code Skills Docs](https://docs.claude.com/en/docs/claude-code/skills)
-- [Anthropic Skills Repo](https://github.com/anthropics/skills)
-- [Awesome Claude Skills](https://github.com/travisvn/awesome-claude-skills)
-
-## 🤝 Getting Help
-
-### Questions About This Repository
-- Check `docs/contributing.md`
-- Look at Service Orchestrator as example
-- Use the template instructions
-
-### Questions About Claude Skills
-- Read [official docs](https://docs.claude.com)
-- Check [community examples](https://github.com/anthropics/skills)
-- Ask in Claude Code discussions
-
-## 🎨 Customization
-
-### Add Your Own Skills
-
-Have an automation idea not in the list? Add it!
-
-```bash
-# 1. Create directory
-mkdir -p dotfiles/my-custom-skill/{resources,examples}
-
-# 2. Use template
-cp shared/templates/SKILL-template.md dotfiles/my-custom-skill/SKILL.md
-
-# 3. Fill it out
-# Follow template instructions
-
-# 4. Add to main README
-# Update skill count and table
-```
-
-### Modify Existing Skills
-
-The Service Orchestrator can be customized for:
-- Additional window managers
-- Different service managers
-- Custom validation scripts
-- Organization-specific workflows
-
-## 📊 Success Metrics
+## 📊 Measuring Impact
 
 Track the value you're getting:
-- ⏱️ Time saved per day (estimate 15-30 min with complete repo)
-- 🐛 Errors prevented (validation catches issues)
-- 😊 Developer satisfaction (less friction)
-- 🚀 Productivity gains (faster workflows)
 
-## 🚀 Release Checklist
+| Metric | Expected Improvement |
+|--------|---------------------|
+| Time saved per day | 15-30 minutes |
+| Errors prevented | Config validation catches issues |
+| Context switching | Less manual intervention |
+| Onboarding time | Faster with env validation |
 
-When ready to publish:
+## 🚀 What's Next?
 
-### Code
-- [ ] All skills tested and working
-- [ ] No TODO/FIXME comments in production skills
-- [ ] All placeholders replaced in templates
-- [ ] Examples provided for each skill
-
-### Documentation
-- [ ] README.md complete and accurate
-- [ ] Each skill has README
-- [ ] Contributing guide reviewed
-- [ ] Installation instructions tested
-
-### GitHub
-- [ ] Repository created
-- [ ] License file (MIT)
-- [ ] .gitignore appropriate
-- [ ] Issues labeled and triaged
-- [ ] Topics/tags added
-
-### Community
-- [ ] Submit to awesome-claude-skills
-- [ ] Blog post written
-- [ ] Twitter/social announcement
-- [ ] Monitor issues/discussions
-
-## 🎉 Congratulations!
-
-You have a solid foundation for a valuable Claude Code skills repository. Whether you:
-- Complete all skills yourself
-- Open source for community contributions
-- Use as personal automation library
-
-You're now equipped to automate tedious dotfiles workflows and save hours every week!
+1. **Install skills**: `./install.sh --user`
+2. **Test them**: Try the example prompts above
+3. **Customize**: Modify skills for your workflow
+4. **Contribute**: Add new skills or improve existing ones
 
 ---
 
-**Questions?** Check `docs/contributing.md` or open an issue!
+**Questions?** Check [Contributing Guidelines](./docs/contributing.md)
 
-**Ready to complete skills?** See the template at `shared/templates/SKILL-template.md`!
+**Want to create skills?** See `shared/templates/SKILL-template.md`
 
-**Want to test what exists?** Run `./install.sh --user` and try the Service Orchestrator!
+**Found an issue?** Open a GitHub issue!

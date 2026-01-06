@@ -228,17 +228,14 @@ dotfiles-skills/
 │   ├── db-migration-assistant/
 │   ├── test-coverage-analyzer/
 │   ├── dependency-update-manager/
-│   └── env-setup-validator/
+│   └── environment-setup-validator/
 │
 ├── shared/                      # Shared resources
-│   ├── templates/
-│   └── utilities/
+│   └── templates/
 │
 └── docs/                        # Documentation
-    ├── installation.md
-    ├── development.md
     ├── contributing.md
-    └── skill-combinations.md
+    └── SKILL_IMPROVEMENTS.md
 ```
 
 ## 🚀 Getting Started
@@ -307,7 +304,7 @@ cd dotfiles/my-new-skill
 3. Test the skill
 4. Submit a PR!
 
-See [docs/development.md](./docs/development.md) for detailed guide.
+See [Contributing Guidelines](./docs/contributing.md) for detailed guide.
 
 ### Testing Skills
 
@@ -334,45 +331,46 @@ Contributions are welcome! Please see [CONTRIBUTING.md](./docs/contributing.md) 
 
 ## 📖 Documentation
 
-- [Installation Guide](./docs/installation.md)
-- [Development Guide](./docs/development.md)
-- [Skill Combinations](./docs/skill-combinations.md)
-- [Contributing Guidelines](./docs/contributing.md)
+- [Contributing Guidelines](./docs/contributing.md) - How to contribute new skills
+- [Skill Improvements](./docs/SKILL_IMPROVEMENTS.md) - Best practices for skill authoring
+- [Getting Started](./GETTING_STARTED.md) - Quick start guide
 
 ## 🌟 Skill Status
 
 | Skill | Status | Version |
 |-------|--------|---------|
 | Service Orchestrator | ✅ Complete | 1.0.0 |
-| Stow Health Manager | 🚧 Template | 0.1.0 |
-| SketchyBar Plugin Dev | 🚧 Template | 0.1.0 |
-| Theme Switcher | 🚧 Template | 0.1.0 |
+| Stow Health Manager | ✅ Complete | 1.0.0 |
+| SketchyBar Plugin Dev | ✅ Complete | 1.0.0 |
+| Theme Switcher | ✅ Complete | 1.0.0 |
 | Pre-Commit Guardian | ✅ Complete | 1.0.0 |
-| API Doc Generator | 🚧 Template | 0.1.0 |
-| DB Migration Assistant | 🚧 Template | 0.1.0 |
-| Test Coverage Analyzer | 🚧 Template | 0.1.0 |
+| API Doc Generator | ✅ Complete | 1.0.0 |
+| DB Migration Assistant | ✅ Complete | 1.0.0 |
+| Test Coverage Analyzer | ✅ Complete | 1.0.0 |
 | Dependency Update Manager | ✅ Complete | 1.0.0 |
-| Env Setup Validator | 🚧 Template | 0.1.0 |
+| Environment Setup Validator | ✅ Complete | 1.0.0 |
 
-Legend:
-- ✅ Complete: Fully functional, production-ready
-- 🚧 Template: Framework in place, ready for completion
-- 📝 Planned: In roadmap
+All skills include:
+- ✅ Trigger-focused descriptions for reliable activation
+- ✅ Tool restrictions for security
+- ✅ Prerequisites with verification commands
+- ✅ Multi-phase workflows
+- ✅ Error handling and limitations documented
 
 ## 🎯 Roadmap
 
 ### v1.0.0 (Current)
 - [x] Repository structure
-- [x] 3 complete skills
-- [x] 7 skill templates
+- [x] 10 complete production-ready skills
 - [x] Installation script
-- [x] Documentation
+- [x] Full documentation
+- [x] Anthropic best practices compliance (tools field, trigger-focused descriptions)
 
 ### v1.1.0 (Next)
-- [ ] Complete remaining 7 skills
-- [ ] Add skill combination workflows
+- [ ] Add skill combination workflows documentation
 - [ ] Create video tutorials
 - [ ] Add CI/CD validation
+- [ ] Expand examples for all skills
 
 ### v2.0.0 (Future)
 - [ ] Advanced skill orchestration
