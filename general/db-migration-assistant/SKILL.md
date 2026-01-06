@@ -1,6 +1,13 @@
 ---
 name: DB Migration Assistant
-description: Safely creates and applies database migrations with automatic backup, rollback capability, and validation. Supports multiple ORMs and migration tools. Use when user needs to modify database schema. Triggers: "create migration", "apply migration", "database migration", "schema change", "rollback migration"
+description: >
+  Activate when user says "create migration", "apply migration", "rollback db",
+  "update schema", "migrate database", or needs database schema changes. Safely
+  creates and applies migrations with automatic backup, validation, and rollback capability.
+tools:
+  - Bash
+  - Read
+  - Write
 version: 1.0.0
 author: Dotfiles Skills
 ---

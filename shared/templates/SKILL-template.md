@@ -1,25 +1,50 @@
 ---
-name: [Skill Name]
-description: [1-2 sentence description of what this skill does and when to use it. Include trigger keywords at the end. Example: "Manages database migrations safely. Use when user wants to update schema, create migration, or rollback changes. Triggers: 'create migration', 'update schema', 'migrate database'"]
-version: 0.1.0
-author: Dotfiles Skills
+name: "[Skill Name]"
+description: >
+  Activate when user says "[trigger phrase 1]", "[trigger phrase 2]", or
+  "[trigger phrase 3]". [One sentence describing what this skill does].
+  [Optional: Key capabilities or differentiators].
+tools:
+  - Bash
+  - Read
+  - Grep
+  # Add other tools as needed: Write, Edit, Glob, WebFetch, etc.
+  # Restricting tools improves security by limiting skill capabilities
 ---
 
-# [Skill Name] Skill
+# [Skill Name]
 
-## Purpose
+## Overview
 
-[2-3 sentences explaining the problem this skill solves and why it's valuable]
+[2-3 sentences explaining the problem this skill solves and why it's valuable. Focus on the pain point and the benefit.]
 
-## When to Use This Skill
+## Prerequisites
 
-Activate when the user:
-- [Trigger scenario 1]
-- [Trigger scenario 2]
-- [Trigger scenario 3]
+### Required Tools
+- **[Tool 1]** - [What it does] (`brew install [package]`)
+- **[Tool 2]** - [What it does] (`[install command]`)
+
+### Verification
+```bash
+# Check all prerequisites are installed
+command -v [tool1] >/dev/null && echo "✓ [tool1]" || echo "✗ [tool1] missing"
+command -v [tool2] >/dev/null && echo "✓ [tool2]" || echo "✗ [tool2] missing"
+```
+
+### Environment
+- [Required OS/platform]
+- [Required configuration]
+- [Any other environmental requirements]
+
+## When to Activate
+
+This skill activates when the user:
+- Says "[trigger phrase 1]" or "[trigger phrase 2]"
+- Wants to [accomplish specific goal]
 - Mentions keywords like: "[keyword1]", "[keyword2]", "[keyword3]"
+- Is experiencing [specific problem this skill solves]
 
-## Workflow
+## Execution Steps
 
 ### Phase 1: [Detection/Analysis]
 
@@ -55,12 +80,6 @@ command --flags argument
 step1_command
 step2_command
 ```
-
-**Error Handling**:
-- If [error condition]:
-  1. [Recovery step 1]
-  2. [Recovery step 2]
-  3. [Notify user with specific error]
 
 ### Phase 4: [Validation]
 
@@ -101,22 +120,6 @@ Next steps:
 - [Suggestion 2]
 ```
 
-**Failure Report**:
-```
-❌ [Skill Name] - Failed
-
-🛑 [Phase] Failed
-
-Error:
-  [Specific error message]
-
-💡 Suggested Fix:
-[Step-by-step fix instructions]
-
-📋 Logs:
-[Relevant log locations]
-```
-
 ## Examples
 
 ### Example 1: [Common Use Case]
@@ -155,27 +158,54 @@ Error:
 4. Result: [Error prevented, user guided to fix]
 ```
 
+## Error Handling
+
+### [Error Type 1]
+**Symptom**: "[What the user sees]"
+**Cause**: [Why this happens]
+**Resolution**:
+1. [Fix step 1]
+2. [Fix step 2]
+3. [Verification step]
+
+### [Error Type 2]
+**Symptom**: "[What the user sees]"
+**Cause**: [Why this happens]
+**Resolution**:
+1. [Fix step 1]
+2. [Fix step 2]
+
+### [Error Type 3]
+**Symptom**: "[What the user sees]"
+**Cause**: [Why this happens]
+**Resolution**:
+[Fix description]
+
+## Limitations
+
+This skill:
+- ❌ Cannot [limitation 1]
+- ❌ Does not [limitation 2]
+- ❌ Only works with [constraint]
+- ❌ Requires [prerequisite that might not be obvious]
+- ❌ Not supported on [platform/environment]
+
 ## Guidelines
 
 ### DO:
-✅ [Best practice 1]
-✅ [Best practice 2]
-✅ [Best practice 3]
-✅ Always validate before executing
-✅ Provide specific error messages
-✅ Show actionable next steps
-✅ Include timing information
-✅ Test the happy path AND failure modes
+- ✅ [Best practice 1]
+- ✅ [Best practice 2]
+- ✅ [Best practice 3]
+- ✅ Always validate before executing
+- ✅ Provide specific error messages
+- ✅ Show actionable next steps
 
 ### DON'T:
-❌ [Anti-pattern 1]
-❌ [Anti-pattern 2]
-❌ [Anti-pattern 3]
-❌ Skip validation steps
-❌ Use generic error messages
-❌ Leave user in broken state
-❌ Execute destructive operations without confirmation
-❌ Assume tools are installed without checking
+- ❌ [Anti-pattern 1]
+- ❌ [Anti-pattern 2]
+- ❌ [Anti-pattern 3]
+- ❌ Skip validation steps
+- ❌ Execute destructive operations without confirmation
 
 ## Advanced Features
 
@@ -194,45 +224,14 @@ Error:
 
 **Use Case**: [When this is useful]
 
-## Dependencies
-
-- **[Tool 1]**: [Why it's needed]
-- **[Tool 2]**: [Why it's needed]
-- **[Tool 3]**: [Optional - what it enables]
-
 ## Configuration
 
 [Any configuration options or environment variables]
 
 ```bash
 # Example configuration
-SETTING_NAME=value
+export SETTING_NAME=value
 ```
-
-## Troubleshooting
-
-### Common Issues
-
-**Issue**: [Problem description]
-**Solution**:
-```
-1. [Fix step 1]
-2. [Fix step 2]
-3. [Verification step]
-```
-
-**Issue**: [Another problem]
-**Solution**:
-[Fix description]
-
-## Success Metrics
-
-A successful [skill name] execution includes:
-- ✅ [Success criterion 1]
-- ✅ [Success criterion 2]
-- ✅ [Success criterion 3]
-- ✅ [Success criterion 4]
-- ✅ Completion time under [X] seconds
 
 ## Integration
 
@@ -240,38 +239,62 @@ Works seamlessly with:
 - **[Other Skill 1]**: [How they work together]
 - **[Other Skill 2]**: [How they work together]
 
+## Success Metrics
+
+A successful [skill name] execution includes:
+- ✅ [Success criterion 1]
+- ✅ [Success criterion 2]
+- ✅ [Success criterion 3]
+- ✅ Completion time under [X] seconds
+
 ## Version History
 
-- v0.1.0 (YYYY-MM-DD): Initial template
+- v1.0.0 (YYYY-MM-DD): Initial release
   - [Feature or improvement]
   - [Feature or improvement]
 
 ---
 
-## Template Instructions
+## Template Usage Guide
 
-When creating a new skill from this template:
+### Step 1: Update YAML Metadata
 
-1. **Replace all [bracketed] placeholders** with actual content
-2. **Define clear trigger keywords** in the description YAML frontmatter
-3. **Break workflow into 3-5 logical phases** (Detection, Planning, Execution, Validation, Reporting)
-4. **Provide 3 examples** showing success, edge case, and error prevention
-5. **Include DO/DON'T guidelines** for clarity
-6. **List all dependencies** and how to check for them
-7. **Add troubleshooting** for at least 3 common issues
-8. **Define success metrics** so effectiveness can be measured
+1. **name**: Clear, descriptive identifier
+2. **description**: Focus on TRIGGER PHRASES first, then capabilities
+   - Start with "Activate when user says..."
+   - Include 3-5 common trigger phrases
+   - End with brief capability summary
+3. **tools**: List only the tools this skill needs
+   - Common tools: `Bash`, `Read`, `Write`, `Edit`, `Grep`, `Glob`
+   - Fewer tools = better security
 
-### Quality Checklist
+### Step 2: Fill Required Sections
+
+1. **Overview**: Problem + solution (2-3 sentences)
+2. **Prerequisites**: What's needed + verification commands
+3. **When to Activate**: Trigger phrases and keywords
+4. **Execution Steps**: 3-5 phases with code examples
+5. **Examples**: At least 3 (common, edge case, error)
+6. **Error Handling**: At least 3 common errors
+7. **Limitations**: At least 5 things it cannot do
+
+### Step 3: Quality Checklist
 
 Before considering a skill complete:
 
-- [ ] YAML frontmatter complete and accurate
-- [ ] Trigger keywords clearly defined
-- [ ] All workflow phases documented
-- [ ] Error handling specified
+- [ ] Description starts with trigger phrases
+- [ ] `tools` field lists only required tools
+- [ ] Prerequisites include verification commands
+- [ ] All workflow phases documented with code
+- [ ] Error handling covers 3+ scenarios
+- [ ] Limitations section is honest and complete
 - [ ] At least 3 examples provided
 - [ ] DO/DON'T guidelines included
-- [ ] Dependencies listed
-- [ ] Troubleshooting section present
-- [ ] Success metrics defined
 - [ ] Tested on real use case
+
+### Token Efficiency Tips
+
+- Keep total skill under 5000 tokens when possible
+- Front-load critical information (triggers, core workflow)
+- Move verbose examples to separate files if needed
+- Use concise code comments

@@ -1,6 +1,13 @@
 ---
 name: Environment Setup Validator
-description: Validates development environment setup by checking tool installations, versions, configurations, environment variables, and permissions. Generates detailed reports and provides fix suggestions. Use when setting up new machines or troubleshooting environment issues. Triggers: "validate environment", "check setup", "verify dev environment", "environment health check"
+description: >
+  Activate when user says "check environment", "validate setup", "verify dev env",
+  "am I set up correctly", "onboarding check", or is troubleshooting environment issues.
+  Validates development environment by checking tools, versions, configs, and permissions.
+tools:
+  - Bash
+  - Read
+  - Grep
 version: 1.0.0
 author: Dotfiles Skills
 ---

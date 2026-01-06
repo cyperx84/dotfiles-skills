@@ -1,6 +1,15 @@
 ---
 name: Theme Switcher
-description: Safely switches themes across all dotfiles components (Starship, Ghostty, Neovim, SketchyBar, Tmux) with automatic validation, backup, and rollback. Coordinates theme changes to ensure visual consistency across terminal, editor, and window management. Use when user wants to change their dotfiles theme. Triggers: "switch theme", "change theme", "apply theme", "set theme to", "use [theme-name] theme"
+description: >
+  Activate when user says "switch theme", "change to dark mode", "apply gruvbox",
+  "set theme to catppuccin", "use nord theme", or mentions theme changes. Coordinates
+  theme switches across Starship, Ghostty, Neovim, SketchyBar, and Tmux with backup
+  and rollback capability.
+tools:
+  - Bash
+  - Read
+  - Write
+  - Edit
 version: 1.0.0
 author: Dotfiles Skills
 ---

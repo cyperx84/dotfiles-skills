@@ -1,6 +1,14 @@
 ---
 name: Stow Health Manager
-description: Scans for broken symlinks, identifies stow conflicts, detects config drift, and repairs dotfiles automatically. Use when user has stow issues, wants to verify dotfiles health, or suspects symlink problems. Triggers: "check stow", "fix symlinks", "verify dotfiles", "repair stow", "stow health".
+description: >
+  Activate when user says "check stow", "fix symlinks", "broken symlinks", "verify dotfiles",
+  "stow health", or "repair stow". Scans for broken symlinks, identifies stow conflicts,
+  detects config drift, and repairs dotfiles automatically with backup safety.
+tools:
+  - Bash
+  - Read
+  - Write
+  - Grep
 version: 1.0.0
 author: Dotfiles Skills
 ---

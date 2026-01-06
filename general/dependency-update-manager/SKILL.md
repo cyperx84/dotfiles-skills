@@ -1,6 +1,14 @@
 ---
 name: Dependency Update Manager
-description: Automates dependency updates across package managers (npm, pip, cargo, brew, etc.) with safety checks, changelog analysis, breaking change detection, and rollback capability. Use when user wants to update dependencies safely. Triggers: "update dependencies", "upgrade packages", "check for updates", "update npm packages", "upgrade all deps"
+description: >
+  Activate when user says "update dependencies", "upgrade packages", "check outdated",
+  "npm update", "pip upgrade", "cargo update", or "security audit". Automates
+  dependency updates across package managers with safety checks, changelog analysis,
+  breaking change detection, testing, and rollback on failure.
+tools:
+  - Bash
+  - Read
+  - Grep
 version: 1.0.0
 author: Dotfiles Skills
 ---

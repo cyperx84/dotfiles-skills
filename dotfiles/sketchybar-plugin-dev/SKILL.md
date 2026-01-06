@@ -1,6 +1,14 @@
 ---
 name: SketchyBar Plugin Dev
-description: Automates SketchyBar plugin development by scaffolding new plugins, setting up event subscriptions, implementing data fetching, adding error handling, creating tests, and integrating with existing setup. Use when user wants to create or debug SketchyBar plugins. Triggers: "create sketchybar plugin", "new bar plugin", "debug sketchybar plugin", "test sketchybar", "add menu bar widget"
+description: >
+  Activate when user says "create sketchybar plugin", "new bar widget", "debug sketchybar",
+  "scaffold plugin", or wants to develop SketchyBar plugins. Automates plugin scaffolding,
+  event subscriptions, data fetching patterns, error handling, and testing.
+tools:
+  - Bash
+  - Read
+  - Write
+  - Glob
 version: 1.0.0
 author: Dotfiles Skills
 ---

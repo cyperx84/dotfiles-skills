@@ -1,6 +1,15 @@
 ---
 name: Pre-Commit Guardian
-description: Validates configuration files before git commits to prevent broken configs from entering the repository. Automatically selects appropriate validators (yabai, shellcheck, luacheck, etc.) based on file type and blocks commits on validation failure. Use when user wants to commit dotfiles changes safely. Triggers: "validate before commit", "check configs before push", "verify dotfiles integrity", "safe commit", "pre-commit check"
+description: >
+  Activate when user says "validate configs", "check before commit", "run pre-commit",
+  "verify my changes", "safe commit", or is about to commit dotfiles changes. Validates
+  configuration files (yabai, skhd, shell scripts, lua, toml) before git commits to
+  prevent broken configs from entering the repository.
+tools:
+  - Bash
+  - Read
+  - Grep
+  - Glob
 version: 1.0.0
 author: Dotfiles Skills
 ---

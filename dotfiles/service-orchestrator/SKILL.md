@@ -1,15 +1,46 @@
 ---
 name: Service Orchestrator
-description: Intelligently manages macOS window management service restarts. Use when user wants to restart yabai, skhd, or sketchybar services, or when configs change. Handles validation, dependency order, health checks. Triggers: "restart services", "reload window management", "fix yabai/skhd/sketchybar".
+description: >
+  Activate when user says "restart services", "reload yabai", "fix sketchybar",
+  "restart window management", "services broken", "apply config changes", or
+  mentions yabai/skhd/sketchybar issues. Manages macOS window management service
+  restarts with config validation, correct dependency ordering, and health verification.
+tools:
+  - Bash
+  - Read
+  - Grep
 version: 1.0.0
 author: Dotfiles Skills
 ---
 
 # Service Orchestrator Skill
 
-## Purpose
+## Overview
 
 Automates the complex workflow of restarting macOS window management services (Yabai, SKHD, SketchyBar) in the correct dependency order with comprehensive validation and health checking. Solves the #1 pain point in dotfiles management: wrong restart order causing cascading failures.
+
+## Prerequisites
+
+### Required Tools
+- **yabai** - Window manager (`brew install koekeishiya/formulae/yabai`)
+- **skhd** - Hotkey daemon (`brew install koekeishiya/formulae/skhd`)
+- **sketchybar** - Status bar (`brew install FelixKratz/formulae/sketchybar`)
+- **jq** - JSON processing (`brew install jq`)
+
+### Verification
+```bash
+# Check all prerequisites are installed
+command -v yabai >/dev/null && echo "✓ yabai" || echo "✗ yabai missing"
+command -v skhd >/dev/null && echo "✓ skhd" || echo "✗ skhd missing"
+command -v sketchybar >/dev/null && echo "✓ sketchybar" || echo "✗ sketchybar missing"
+command -v jq >/dev/null && echo "✓ jq" || echo "✗ jq missing"
+```
+
+### Environment
+- macOS 12.0 (Monterey) or later
+- Homebrew installed
+- SIP partially disabled (for yabai scripting additions)
+- Services installed via Homebrew services
 
 ## When to Use This Skill
 
@@ -391,6 +422,57 @@ Error found:
 
 Fix the error and try again.
 ```
+
+## Error Handling
+
+### Validation Failures
+**Symptom**: "Config validation failed" or "yabai --check-config returned error"
+**Cause**: Syntax error or invalid configuration in yabairc, skhdrc, or sketchybarrc
+**Resolution**:
+1. Check the specific line number in the error message
+2. Fix the syntax error in the config file
+3. Run `yabai --check-config` to verify the fix
+4. Retry the skill with "restart services"
+
+### Service Start Failures
+**Symptom**: "Service failed to start" or "PID not found after start"
+**Cause**: Port conflict, permission issue, or missing dependency
+**Resolution**:
+1. Check logs: `tail -f /usr/local/var/log/yabai/yabai.err.log`
+2. Verify no conflicting processes: `pgrep yabai`
+3. Ensure dependencies started first (yabai before sketchybar)
+4. Try manual start: `brew services start yabai`
+5. Check SIP status if yabai scripting additions fail
+
+### Health Check Failures
+**Symptom**: "Health check failed" or "Service not responding"
+**Cause**: Service started but not fully initialized or not responding to queries
+**Resolution**:
+1. Wait additional 5 seconds for full initialization
+2. Check if service is listening: `yabai -m query --windows`
+3. Review recent log entries for errors
+4. Restart the specific failing service individually
+
+### Integration Failures
+**Symptom**: "SketchyBar not receiving yabai signals" or "Blank bar"
+**Cause**: Services started in wrong order or external_bar config incorrect
+**Resolution**:
+1. Verify yabai external_bar config: `yabai -m config external_bar`
+2. Ensure yabai started before sketchybar
+3. Check sketchybar event subscriptions
+4. Rebuild helper binary if needed: `cd ~/.config/sketchybar/helper && make`
+
+## Limitations
+
+This skill:
+- ❌ Cannot install missing services (use Homebrew directly)
+- ❌ Does not modify SIP settings (requires manual reboot into recovery mode)
+- ❌ Cannot recover from corrupted config files (manual intervention needed)
+- ❌ Only supports Homebrew-installed services (not manual installations)
+- ❌ Does not work on Linux or Windows (macOS only)
+- ❌ Cannot fix permission issues automatically (requires manual sudo/chmod)
+- ❌ Does not support services other than yabai, skhd, and sketchybar
+- ❌ Cannot restart services if user is not logged in to the GUI session
 
 ## Guidelines
 

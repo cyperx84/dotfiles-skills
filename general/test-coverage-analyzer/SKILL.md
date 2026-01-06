@@ -1,6 +1,14 @@
 ---
 name: Test Coverage Analyzer
-description: Analyzes test coverage across multiple test frameworks, identifies untested code, generates coverage reports, and enforces coverage thresholds. Tracks coverage trends over time. Use when user wants to analyze or improve test coverage. Triggers: "analyze test coverage", "check coverage", "coverage report", "untested code"
+description: >
+  Activate when user says "check coverage", "analyze tests", "coverage report",
+  "find untested code", or "improve test coverage". Analyzes test coverage across
+  multiple frameworks, identifies gaps, generates reports, and tracks improvements.
+tools:
+  - Bash
+  - Read
+  - Grep
+  - Glob
 version: 1.0.0
 author: Dotfiles Skills
 ---
